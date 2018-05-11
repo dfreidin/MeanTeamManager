@@ -1,0 +1,5 @@
+<form (submit)="createPlayer()">
+  <p>Player Name: <input type="text" name="new_player.name" required minlength="2" #name="ngModel" [(ngModel)]="new_player.name"></p>
+  <p>Preferred Position: <input type="text" name="new_player.position" [(ngModel)]="new_player.position"></p>
+  <p *ngIf="name.valid"><input class="btn btn-primary" type="submit" value="Add"></p>
+</form>

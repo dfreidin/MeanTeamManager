@@ -1,0 +1,17 @@
+<h1>Player Status - Game {{game_num}}</h1>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Player Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let player of players">
+        <td>{{player.name}}</td>
+        <td><button class="btn" [ngClass]="{'btn-success': player.status[game_idx] == '+', 'btn-secondary': player.status[game_idx] != '+'}" (click)="updatePlayer(player._id, '+')">Playing</button>
+        <button class="btn" [ngClass]="{'btn-danger': player.status[game_idx] == '-', 'btn-secondary': player.status[game_idx] != '-'}" (click)="updatePlayer(player._id, '-')">Not Playing</button>
+        <button class="btn" [ngClass]="{'btn-warning': player.status[game_idx] == '?', 'btn-secondary': player.status[game_idx] != '?'}" (click)="updatePlayer(player._id, '?')">Undecided</button></td>
+      </tr>
+    </tbody>
+  </table>
